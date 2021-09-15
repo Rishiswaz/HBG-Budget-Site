@@ -1,5 +1,5 @@
 export * from './Intro';
-export * from './Skills';
+export * from './Learn More';
 export * from './Contact';
-export * from './Projects';
+export * from './Why';
 export * from './Get-Involved';

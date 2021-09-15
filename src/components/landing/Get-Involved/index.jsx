@@ -8,14 +8,13 @@ export const GetInvolved = () => (
 	<Wrapper as={Container} id="getinvolved">
 		<Details>
 			<h2>Get Involved</h2>
-			<p>Link to Google Form</p>
 			<div>
-				<h4>important dates</h4>
+				<h4>Events</h4>
 				<ul>
-					<li>Date 1</li>
-					<li>Date 2</li>
+					<li>Events Coming Soon</li>
 				</ul>
 			</div>
+			<h4>Sign Up For Updates</h4>
 			<ContactForm />
 		</Details>
 		<Thumbnail>

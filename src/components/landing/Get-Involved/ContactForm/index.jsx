@@ -1,59 +1,45 @@
-import React from "react";
-import axios from "axios";
-import { Formik, Form, FastField, ErrorMessage } from "formik";
-import Recaptcha from "react-google-recaptcha";
-import * as Yup from "yup";
-import { url } from "data/config";
-import { Button, Input } from "components/common";
-import { Error, Center, InputField } from "./styles";
+import React from 'react';
+import axios from 'axios';
+import { Formik, Form, FastField, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { url } from 'data/config';
+import { Button, Input } from 'components/common';
+import { Error, Center, InputField } from './styles';
 
 const ContactForm = () => (
 	<Formik
 		initialValues={{
-			name: "",
-			email: "",
-			message: "",
-			recaptcha: "",
+			name: '',
+			email: '',
+			volunteer: false,
+			information: false,
+			recaptcha: '',
 			success: false,
 		}}
 		validationSchema={Yup.object().shape({
-			name: Yup.string().required("Full name field is required"),
+			name: Yup.string().required('Full name field is required'),
 			email: Yup.string()
-				.email("Invalid email")
-				.required("Email field is required"),
-			message: Yup.string().required("Message field is required"),
-			recaptcha:
-				process.env.NODE_ENV !== "development"
-					? Yup.string().required("Robots are not welcome yet!")
-					: Yup.string(),
+				.email('Invalid email')
+				.required('Email field is required'),
 		})}
 		onSubmit={async (
-			{ name, email, message },
+			{ name, email, information, volunteer },
 			{ setSubmitting, resetForm, setFieldValue }
 		) => {
 			try {
 				await axios({
-					method: "POST",
-					url:
-						process.env.NODE_ENV !== "development"
-							? `${url}/api/contact`
-							: "http://localhost:3000/api/contact",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					data: JSON.stringify({
-						name,
-						email,
-						message,
-					}),
+					method: 'post',
+					url: 'https://v1.nocodeapi.com/rishabhbajpai/google_sheets/ONPcQhrfxiYtVEvt?tabId=Sheet1',
+					params: {},
+					data: [name, email, volunteer.toString(), information.toString()],
 				});
 				setSubmitting(false);
-				setFieldValue("success", true);
+				setFieldValue('success', true);
 				setTimeout(() => resetForm(), 6000);
 			} catch (err) {
 				setSubmitting(false);
-				setFieldValue("success", false);
-				alert("Something went wrong, please try again!");
+				setFieldValue('success', false);
+				alert('Something went wrong, please try again!');
 			}
 		}}
 	>
@@ -85,33 +71,31 @@ const ContactForm = () => (
 					<ErrorMessage component={Error} name="email" />
 				</InputField>
 				<InputField>
+					<label> Interested in Volunteering?</label>
 					<Input
 						as={FastField}
-						component="textarea"
-						aria-label="message"
-						id="message"
-						rows="8"
-						type="text"
-						name="message"
-						placeholder="Message*"
+						component="checkbox"
+						aria-label="volunteer"
+						id="volunteer"
+						name="volunteer"
+						value="volunteer"
 						error={touched.message && errors.message}
 					/>
-					<ErrorMessage component={Error} name="message" />
+					<ErrorMessage component={Error} name="volunteer" />
 				</InputField>
-				{values.name &&
-					values.email &&
-					values.message &&
-					process.env.NODE_ENV !== "development" && (
-						<InputField>
-							<FastField
-								component={Recaptcha}
-								sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
-								name="recaptcha"
-								onChange={(value) => setFieldValue("recaptcha", value)}
-							/>
-							<ErrorMessage component={Error} name="recaptcha" />
-						</InputField>
-					)}
+				<InputField>
+					<label> Get More Information </label>
+					<Input
+						as={FastField}
+						component="checkbox"
+						aria-label="information"
+						id="information"
+						name="information"
+						value="information"
+						error={touched.message && errors.message}
+					/>
+					<ErrorMessage component={Error} name="information" />
+				</InputField>
 				{values.success && (
 					<InputField>
 						<Center>

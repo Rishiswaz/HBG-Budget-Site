@@ -18,6 +18,7 @@ module.exports = {
 			options: {
 				bucketName: 'vishal-site',
 				protocol: 'https',
+				hostname: 'www.peoplesbudgethbg.com',
 			},
 		},
 		{

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from 'components/common';
 import { Wrapper, Flex, Links, Details } from './styles';
-import social from './social.json';
+//import social from './social.json';
 
 export const Footer = () => (
 	<Wrapper>
 		<Flex as={Container}>
 			<Details>
-				<h2>HBG Budget Data Site</h2>
+				<h2>People's Budget Harrisburg {new Date().getFullYear()}</h2>
 				<span>
 					© All rights are reserved | {new Date().getFullYear()} | Made with{' '}
 					<span aria-label="love" role="img">
@@ -23,7 +23,7 @@ export const Footer = () => (
 					</a>
 				</span>
 			</Details>
-			<Links>
+			{/* <Links>
 				{social.map(({ id, name, link, icon }) => (
 					<a
 						key={id}
@@ -35,7 +35,7 @@ export const Footer = () => (
 						<img width="24" src={icon} alt={name} />
 					</a>
 				))}
-			</Links>
+			</Links> */}
 		</Flex>
 	</Wrapper>
 );
