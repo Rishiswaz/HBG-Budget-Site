@@ -1,6 +1,12 @@
-import React from "react";
-import { Layout, Seo } from "components/common";
-import { Intro, Skills, Contact, Projects } from "components/landing";
+import React from 'react';
+import { Layout, Seo } from 'components/common';
+import {
+	Intro,
+	Skills,
+	Contact,
+	Projects,
+	GetInvolved,
+} from 'components/landing';
 
 const Home = () => (
 	<Layout>
@@ -9,6 +15,7 @@ const Home = () => (
 		<Projects />
 		<Skills />
 		<Contact />
+		<GetInvolved />
 	</Layout>
 );
 
