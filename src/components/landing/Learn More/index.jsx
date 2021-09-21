@@ -4,6 +4,7 @@ import { ThemeContext } from 'providers/ThemeProvider';
 import { Container } from 'components/common';
 import dev from 'assets/illustrations/skills.svg';
 import { Wrapper, SkillsWrapper, Details, Thumbnail } from './styles';
+import faq from './FAQ.pdf';
 export const LearnMore = () => {
 	const { theme } = useContext(ThemeContext);
 
@@ -18,7 +19,7 @@ export const LearnMore = () => {
 					<p>
 						<ol>
 							<li>
-								<a href="./FAQ.pdf" download>
+								<a href={faq} download>
 									FAQ
 								</a>
 							</li>

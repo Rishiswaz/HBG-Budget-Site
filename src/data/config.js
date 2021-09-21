@@ -2,7 +2,7 @@ module.exports = {
 	defaultTitle: "People's budget Harrisburg",
 	logo: 'C:Users/Risha/HBG-Site/HBG-Site/src/assets/$transparent-background.png',
 	author: 'Rishabh Bajpai',
-	url: 'C:Users/Risha/HBG-Site/HBG-Site/src/assets/$transparent-background.png',
+	url: 'https://v1.nocodeapi.com/rishabhbajpai/google_sheets/ONPcQhrfxiYtVEvt?tabId=Sheet1',
 	legalName: "People's budget Harrisburg",
 	defaultDescription: 'Get Copy from team',
 	socialLinks: {

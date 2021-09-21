@@ -16,7 +16,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-s3`,
 			options: {
-				bucketName: 'vishal-site',
+				bucketName: 'www.peoplesbudgethbg.com',
 				protocol: 'https',
 				hostname: 'www.peoplesbudgethbg.com',
 			},

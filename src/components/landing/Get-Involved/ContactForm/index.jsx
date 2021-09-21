@@ -6,6 +6,12 @@ import { url } from 'data/config';
 import { Button, Input } from 'components/common';
 import { Error, Center, InputField } from './styles';
 
+const encode = (data) => {
+	return Object.keys(data)
+		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+		.join('&');
+};
+
 const ContactForm = () => (
 	<Formik
 		initialValues={{
@@ -22,29 +28,24 @@ const ContactForm = () => (
 				.email('Invalid email')
 				.required('Email field is required'),
 		})}
-		onSubmit={async (
-			{ name, email, information, volunteer },
-			{ setSubmitting, resetForm, setFieldValue }
-		) => {
-			try {
-				await axios({
-					method: 'post',
-					url: 'https://v1.nocodeapi.com/rishabhbajpai/google_sheets/ONPcQhrfxiYtVEvt?tabId=Sheet1',
-					params: {},
-					data: [name, email, volunteer.toString(), information.toString()],
-				});
-				setSubmitting(false);
-				setFieldValue('success', true);
-				setTimeout(() => resetForm(), 6000);
-			} catch (err) {
-				setSubmitting(false);
-				setFieldValue('success', false);
-				alert('Something went wrong, please try again!');
-			}
+		onSubmit={(values, actions) => {
+			fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: encode({ 'form-name': 'contact', ...values }),
+			})
+				.then(() => {
+					alert('Success');
+					actions.resetForm();
+				})
+				.catch(() => {
+					alert('Error');
+				})
+				.finally(() => actions.setSubmitting(false));
 		}}
 	>
 		{({ values, touched, errors, setFieldValue, isSubmitting }) => (
-			<Form>
+			<Form name="contact" data-netlify={true}>
 				<InputField>
 					<Input
 						as={FastField}
