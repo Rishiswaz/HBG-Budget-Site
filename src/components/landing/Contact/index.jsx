@@ -9,8 +9,8 @@ export const Contact = () => (
 			<Details>
 				<h2>Survey</h2>
 				<iframe
-					width="640px"
-					height="480px"
+					width="1280px"
+					height="720px"
 					src="https://forms.office.com/Pages/ResponsePage.aspx?id=6LfeD0Dz20-PG2LbCRxarqEWEy8DKcRCteIMWA1kCe1UMUtYTzZDUzlRWjhVMTA0VTNINEpMRENSNy4u&embed=true"
 					frameborder="0"
 					marginwidth="0"

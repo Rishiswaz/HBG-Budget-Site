@@ -12,7 +12,7 @@ export const Intro = () => {
 		<Wrapper>
 			<IntroWrapper as={Container}>
 				<Details theme={theme}>
-					<h1>Harrisburg Budget Data</h1>
+					<h1>The People's Budget</h1>
 					<h4>Purpose Statement</h4>
 					<p>
 						Budgets are a representation of our values as a community. For far

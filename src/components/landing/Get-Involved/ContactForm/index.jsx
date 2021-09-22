@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Formik, Form, FastField, ErrorMessage } from 'formik';
+import { Formik, Form, FastField, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { url } from 'data/config';
 import { Button, Input } from 'components/common';
@@ -74,26 +74,24 @@ const ContactForm = () => (
 				<InputField>
 					<label> Interested in Volunteering?</label>
 					<Input
-						as={FastField}
+						as={Field}
 						component="checkbox"
 						aria-label="volunteer"
 						id="volunteer"
 						name="volunteer"
 						value="volunteer"
-						error={touched.message && errors.message}
 					/>
 					<ErrorMessage component={Error} name="volunteer" />
 				</InputField>
 				<InputField>
 					<label> Get More Information </label>
 					<Input
-						as={FastField}
+						as={Field}
 						component="checkbox"
 						aria-label="information"
 						id="information"
 						name="information"
 						value="information"
-						error={touched.message && errors.message}
 					/>
 					<ErrorMessage component={Error} name="information" />
 				</InputField>
@@ -101,7 +99,7 @@ const ContactForm = () => (
 					<InputField>
 						<Center>
 							<h4>
-								Your message has been successfully sent, I will get back to you
+								Your message has been successfully sent, we will get back to you
 								ASAP!
 							</h4>
 						</Center>
