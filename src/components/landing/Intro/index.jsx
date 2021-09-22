@@ -3,7 +3,14 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Container } from 'components/common';
 import pie_chart from 'assets/illustrations/pie_chart.svg';
-import { Wrapper, IntroWrapper, Details, Thumbnail } from './styles';
+import {
+	Wrapper,
+	IntroWrapper,
+	Details,
+	Thumbnail,
+	Button_Group,
+} from './styles';
+import { Link } from 'gatsby';
 
 export const Intro = () => {
 	const { theme } = useContext(ThemeContext);
@@ -38,6 +45,20 @@ export const Intro = () => {
 						US. This is a once in a lifetime opportunity for our community to
 						come together and work towards a bold new future.
 					</p>
+					<Button_Group className="btn-group">
+						<button>
+							<Link to="/why">Why A Peoples' Budget</Link>
+						</button>
+						<button>
+							<Link to="/learnmore">Learn More</Link>
+						</button>
+						<button>
+							<Link to="/takesurvey">Take the Survey</Link>
+						</button>
+						<button>
+							<Link to="/getinvolved">Get Involved</Link>
+						</button>
+					</Button_Group>
 				</Details>
 				<Thumbnail>
 					<img src={pie_chart} alt="Pie Chart" />
