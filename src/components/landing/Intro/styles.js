@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import overlayIllustration from 'assets/illustrations/overlay.svg';
+//import overlayIllustration from 'assets/illustrations/overlay.svg';
 
 export const Wrapper = styled.div`
 	padding-bottom: 4rem;
-	background-image: url(${overlayIllustration});
 	background-size: contain;
-	background-position: right top;
+	background-position: left;
 	background-repeat: no-repeat;
+	background-color: ${({ theme }) => (theme === 'light' ? '#fff' : '#121212)')};
+	border-left: 30px solid #008037;
 `;
 
 export const IntroWrapper = styled.div`
@@ -63,8 +64,8 @@ export const Details = styled.div`
 export const Button_Group = styled.div`
 	flex: 1;
 	button {
-		background-color: #04aa6d; /* Green background */
-		border: 1px solid green; /* Green border */
+		background-color: #008037; /* Green background */
+		border: 1px solid #008037; /* Green border */
 		color: #ffffff; /* White text */
 		padding: 10px 24px; /* Some padding */
 		cursor: pointer; /* Pointer/hand icon */
@@ -96,6 +97,26 @@ export const Button_Group = styled.div`
 	/* Add a background color on hover */
 	button:hover {
 		background-color: #3e8e41;
+	}
+
+	button a:link {
+		color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
+		text-decoration: none;
+	}
+
+	button a:visted {
+		color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
+		text-decoration: none;
+	}
+
+	button a:hover {
+		color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
+		text-decoration: none;
+	}
+
+	button a:active {
+		color: ${({ theme }) => (theme === 'light' ? '#707070' : '#e6e6e6')};
+		text-decoration: none;
 	}
 `;
 

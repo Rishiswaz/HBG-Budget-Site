@@ -3,9 +3,12 @@ import detailsIllustration from 'assets/illustrations/details.svg';
 
 export const Wrapper = styled.div`
 	background-image: url(${detailsIllustration});
+	padding-bottom: 4rem;
 	background-size: contain;
-	background-position: left top;
+	background-position: left;
 	background-repeat: no-repeat;
+	background-color: ${({ theme }) => (theme === 'light' ? '#fff' : '#121212)')};
+	border-left: 30px solid #008037;
 `;
 
 export const SkillsWrapper = styled.div`

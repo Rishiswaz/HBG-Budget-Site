@@ -5,7 +5,9 @@ export const Wrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-
+	padding-bottom: 4rem;
+	background-color: ${({ theme }) => (theme === 'light' ? '#fff' : '#121212)')};
+	border-left: 30px solid #008037;
 	@media (max-width: 960px) {
 		flex-direction: column;
 	}
