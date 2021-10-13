@@ -73,6 +73,13 @@ export const Button_Group = styled.div`
 		width: 10%;
 		border-radius: 15px;
 		margin: 0 3px;
+		@media (max-width: 960px) {
+			padding: 5px 12px;
+		}
+	}
+
+	button a {
+		color: #ffffff;
 	}
 
 	button:first-of-type {
